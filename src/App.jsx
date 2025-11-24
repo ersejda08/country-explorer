@@ -1,21 +1,14 @@
-import { useState } from "react";
-import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import MainLayout from "./layouts/MainLayout";
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
-    <>
-      <div>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-      <div className="min-h-screen flex items-center justify-center bg-slate-900">
-        <h1 className="text-4xl font-bold text-emerald-400">Hello 🌍</h1>
-      </div>
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/" element={<MainLayout />} />
+    </Routes>
   );
-}
+};
 
 export default App;
