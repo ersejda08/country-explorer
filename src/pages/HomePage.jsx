@@ -1,8 +1,11 @@
+import Hero from "../components/Hero";
+import NavBar from "../components/NavBar";
 const HomePage = () => {
   return (
-    <div>
-      <h1>This will be our HomePage</h1>
-    </div>
+    <>
+      <NavBar />
+      <Hero />
+    </>
   );
 };
 
