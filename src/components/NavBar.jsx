@@ -4,7 +4,7 @@ import logo from "../assets/images/react-logo.png";
 const NavBar = () => {
   const linkStyle = ({ isActive }) =>
     isActive == true
-      ? "text-white bg-black hover:bg-gray-900 rounded-md px-3 py-2"
+      ? "text-white bg-gray-600 hover:bg-gray-400 rounded-md px-3 py-2"
       : "hover:text-white hover:bg-gray-600 rounded-md px-3 py-2";
 
   return (
@@ -15,7 +15,7 @@ const NavBar = () => {
             <div className="flex flex-1 items-center justify-center md:items-stretch md:justify-start">
               {/* <!-- Logo --> */}
               <Link className="flex shrink-0 items-center mr-4" to="/">
-                <img className="h-10 w-auto" src={logo} alt="JobSphere" />
+                <img className="h-10 w-auto" src={logo} alt="Explorer" />
                 <span className="hidden md:block text-white text-2xl font-bold ml-2">
                   Curious Explorer
                 </span>
@@ -25,10 +25,10 @@ const NavBar = () => {
                   <NavLink to="/" className={linkStyle}>
                     Home
                   </NavLink>
-                  <NavLink to="/jobs" className={linkStyle}>
+                  <NavLink to="/countries" className={linkStyle}>
                     Countries
                   </NavLink>
-                  <NavLink to="/add-job.html" className={linkStyle}>
+                  <NavLink to=" /details" className={linkStyle}>
                     Details
                   </NavLink>
                 </div>
