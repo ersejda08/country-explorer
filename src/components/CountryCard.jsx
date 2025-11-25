@@ -1,8 +1,7 @@
 import logo from "../assets/images/react-logo.png";
 const CountryCard = () => {
   return (
-    <div className="bg-slate-800 rounded-xl overflow-hidden shadow hover:shadow-lg hover:-translate-y-1 transition transform flex flex-col">
-      <img src={logo} alt="Flags" className="h-32 w-full object-cover" />
+    <div className="bg-blue-400 py-20 mb-4">
       <img className="h-10 w-auto" src={logo} alt="Explorer" />
       <div className="p-4 flex-1 flex flex-col gap-1">
         <h2 className="text-lg font-semibold mb-1">Name</h2>
