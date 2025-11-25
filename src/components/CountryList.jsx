@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import CountryCard from "./CountryCard";
 
 const TestCountryData = () => {
   const [data, setData] = useState([]); //Stores API data
@@ -25,22 +26,13 @@ const TestCountryData = () => {
 
   return (
     <div>
-      <h1 className="text-white">Check your console 👇</h1>
-      <p className="text-slate-300">Data is printed in DevTools console.</p>
+      <h1 className="text-white text-2xl mb-4">Country Data</h1>
 
-      <ul>
-        {loading ? (
-          <h2>Loading...</h2>
-        ) : (
-          <>
-            {data.slice(0, 3).map((country, index) => (
-              <li key={index} className="text-white">
-                {country.name.common}
-              </li>
-            ))}
-          </>
-        )}
-      </ul>
+      {loading ? (
+        <h2 className="text-white">Loading...</h2>
+      ) : (
+        <CountryCard countries={data.slice(0, 5)} />
+      )}
     </div>
   );
 };
