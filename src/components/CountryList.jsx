@@ -10,7 +10,7 @@ const TestCountryData = () => {
       try {
         setLoading(true); //Activate loading state before request
         const response = await fetch(
-          "https://restcountries.com/v3.1/all?fields=name,cca3,capital,region"
+          "https://restcountries.com/v3.1/all?fields=name,cca3,capital,region,flags"
         );
         const result = await response.json(); //Convert response to JSON
         setData(result); //Store data in state
@@ -31,7 +31,7 @@ const TestCountryData = () => {
       {loading ? (
         <h2 className="text-white">Loading...</h2>
       ) : (
-        <CountryCard countries={data.slice(0, 5)} />
+        <CountryCard countries={data.slice(0, 15)} />
       )}
     </div>
   );

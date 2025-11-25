@@ -1,12 +1,12 @@
 import CountryCard from "../components/CountryCard";
+import CountrySearch from "../components/CountrySearch";
 import Hero from "../components/Hero";
-import NavBar from "../components/NavBar";
 
 const HomePage = () => {
   return (
     <>
-      <NavBar />
       <Hero />
+      <CountrySearch />
     </>
   );
 };
