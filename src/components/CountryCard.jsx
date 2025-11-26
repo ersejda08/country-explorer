@@ -1,15 +1,19 @@
 import { Link } from "react-router-dom";
 
-const CountryCard = ({ countries }) => {
+const CountryCard = ({ countries, isDetails = false }) => {
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <ul
+      className={
+        isDetails
+          ? "grid grid-cols-1 max-w-xl mx-auto gap-6"
+          : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      }
+    >
       {countries.map((country) => {
-        // Build readable languages list
         const languagesList = country.languages
           ? Object.values(country.languages).join(", ")
           : "N/A";
 
-        // Build readable currencies list with symbols
         const currenciesList = country.currencies
           ? Object.values(country.currencies)
               .map((cur) =>
@@ -21,12 +25,15 @@ const CountryCard = ({ countries }) => {
         return (
           <li
             key={country.cca3}
-            className="group bg-amber-50 border border-amber-100 rounded-2xl shadow-sm hover:shadow-md transition transform hover:-translate-y-1 p-5 flex flex-col"
+            className={
+              "group bg-amber-50 border border-amber-100 rounded-2xl shadow-sm hover:shadow-md transition transform hover:-translate-y-1 flex flex-col " +
+              (isDetails ? "p-7" : "p-5")
+            }
           >
             {/* Top: flag + basic info */}
             <div className="flex items-start gap-4 mb-4">
               {/* Flag */}
-              <div className="w-20 h-14 rounded-xl overflow-hidden border border-amber-100 shadow-sm bg-white">
+              <div className="w-24 h-16 rounded-xl overflow-hidden border border-amber-100 shadow-sm bg-white">
                 <img
                   src={country.flags?.svg || country.flags?.png}
                   alt={`${country.name.common} flag`}
@@ -36,7 +43,12 @@ const CountryCard = ({ countries }) => {
 
               {/* Name, code, capital */}
               <div className="space-y-1">
-                <h2 className="text-lg font-semibold text-slate-800">
+                <h2
+                  className={
+                    "font-semibold text-slate-800 " +
+                    (isDetails ? "text-xl" : "text-lg")
+                  }
+                >
                   {country.name.common}
                 </h2>
                 <p className="text-sm text-slate-700">
@@ -71,12 +83,15 @@ const CountryCard = ({ countries }) => {
                 🌍 {country.region || "Unknown region"}
               </span>
 
-              <Link to={`/details/${country.cca3}`} state={{ country }}>
-                <button className="inline-flex items-center gap-1 rounded-full bg-orange-100 px-4 py-1.5 text-xs font-semibold text-slate-800 shadow-sm hover:bg-orange-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-orange-200/70 focus:ring-offset-1 transition">
-                  View details
-                  <span className="text-sm">➜</span>
-                </button>
-              </Link>
+              {/* Hide the “View details” button in details mode */}
+              {!isDetails && (
+                <Link to={`/details/${country.cca3}`} state={{ country }}>
+                  <button className="inline-flex items-center gap-1 rounded-full bg-orange-100 px-4 py-1.5 text-xs font-semibold text-slate-800 shadow-sm hover:bg-orange-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-orange-200/70 focus:ring-offset-1 transition">
+                    View details
+                    <span className="text-sm">➜</span>
+                  </button>
+                </Link>
+              )}
             </div>
           </li>
         );

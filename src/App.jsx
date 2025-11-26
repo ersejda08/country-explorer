@@ -9,6 +9,7 @@ import MainLayout from "./layouts/MainLayout";
 import CountryDetailsPage from "./pages/CountryDetailsPage";
 import CountriesPage from "./pages/CountriesPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import ExplorePage from "./pages/ExplorePage";
 
 const App = () => {
   const router = createBrowserRouter(
