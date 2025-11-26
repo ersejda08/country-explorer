@@ -15,7 +15,7 @@ const CountrySearch = () => {
         setError("");
 
         const response = await fetch(
-          "https://restcountries.com/v3.1/all?fields=name,cca3,capital,region,flags,currencies,languages,population"
+          "https://restcountries.com/v3.1/all?fields=name,cca3,capital,region,flags,population,languages,currencies,subregion,area,timezones,startOfWeek,latlng,capitalInfo,maps"
         );
 
         const result = await response.json();
