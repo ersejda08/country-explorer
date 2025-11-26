@@ -58,17 +58,22 @@ const CountryDetails = () => {
     );
   }
 
-  // --- Map-related data (Google Maps embed) ---
+  // ---- MAP DATA ----
   const lat = country.capitalInfo?.latlng?.[0] ?? country.latlng?.[0] ?? null;
   const lng = country.capitalInfo?.latlng?.[1] ?? country.latlng?.[1] ?? null;
   const hasCoords = lat !== null && lng !== null;
 
+  console.log("Map coords:", country.name?.common, lat, lng);
+
+  // OpenStreetMap embed: show a wide bbox (zoomed-out "world" feel) and marker
   const mapEmbedUrl = hasCoords
-    ? `https://www.google.com/maps?q=${lat},${lng}&z=5&output=embed`
+    ? `https://www.openstreetmap.org/export/embed.html?bbox=${lng - 40}%2C${
+        lat - 30
+      }%2C${lng + 40}%2C${lat + 30}&layer=mapnik&marker=${lat}%2C${lng}`
     : null;
 
   const mapLinkUrl = hasCoords
-    ? `https://www.google.com/maps?q=${lat},${lng}&z=5`
+    ? `https://www.openstreetmap.org/?mlat=${lat}&mlon=${lng}#map=3/${lat}/${lng}`
     : null;
 
   return (
@@ -85,7 +90,7 @@ const CountryDetails = () => {
         <CountryCard countries={[country]} isDetails={true} />
 
         {/* Map below the card */}
-        {hasCoords && (
+        {hasCoords && mapEmbedUrl && (
           <div className="mt-8 space-y-2">
             <h2 className="text-lg font-semibold">
               Location of {country.name?.common} on the map
@@ -97,7 +102,6 @@ const CountryDetails = () => {
                 className="w-full h-full"
                 style={{ border: 0 }}
                 loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
               ></iframe>
             </div>
             {mapLinkUrl && (
@@ -107,10 +111,16 @@ const CountryDetails = () => {
                 rel="noreferrer"
                 className="text-sm text-blue-700 hover:underline"
               >
-                Open in Google Maps ↗
+                Open in OpenStreetMap ↗
               </a>
             )}
           </div>
+        )}
+
+        {!hasCoords && (
+          <p className="mt-6 text-sm text-slate-700">
+            No coordinates available to show this country on the map.
+          </p>
         )}
       </div>
     </div>

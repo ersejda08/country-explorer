@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../assets/images/globe.png"; // ← use your new logo
+import logo from "../assets/images/globe.png";
 
 const NavBar = () => {
   const linkStyle = ({ isActive }) =>
@@ -24,7 +24,7 @@ const NavBar = () => {
             <NavLink to="/" className={linkStyle}>
               Home
             </NavLink>
-            <NavLink to="/countries" className={linkStyle}>
+            <NavLink to="/explore" className={linkStyle}>
               Countries
             </NavLink>
             <NavLink to="/details" className={linkStyle}>
