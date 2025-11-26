@@ -71,7 +71,7 @@ const CountryCard = ({ countries }) => {
                 🌍 {country.region || "Unknown region"}
               </span>
 
-              <Link to={`/country/${country.cca3}`}>
+              <Link to={`/details/${country.cca3}`} state={{ country }}>
                 <button className="inline-flex items-center gap-1 rounded-full bg-orange-100 px-4 py-1.5 text-xs font-semibold text-slate-800 shadow-sm hover:bg-orange-200 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-orange-200/70 focus:ring-offset-1 transition">
                   View details
                   <span className="text-sm">➜</span>

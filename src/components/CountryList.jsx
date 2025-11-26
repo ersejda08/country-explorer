@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import CountryCard from "./CountryCard";
 
-const TestCountryData = () => {
+const CountryList = () => {
   const [data, setData] = useState([]); //Stores API data
   const [loading, setLoading] = useState(true); //Indicates if data is loading
   //useEffect to fetch on component mount
@@ -37,4 +37,4 @@ const TestCountryData = () => {
   );
 };
 
-export default TestCountryData;
+export default CountryList;
