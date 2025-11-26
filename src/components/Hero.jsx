@@ -12,7 +12,7 @@ const Hero = ({
             {title}
           </h1>
           <p className="my-4 text-xl text-slate-700">{subTitle}</p>
-          <Link to="/*">
+          <Link to="/explore">
             <button className="mt-4 rounded-full bg-amber-300 px-6 py-2 text-sm font-semibold text-slate-800 shadow-sm hover:bg-amber-400 transition">
               Start exploring
             </button>
