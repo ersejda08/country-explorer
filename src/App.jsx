@@ -1,21 +1,27 @@
-import { useState } from "react";
-import "./App.css";
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import MainLayout from "./layouts/MainLayout";
+import CountryDetailsPage from "./pages/CountryDetailsPage";
+import CountriesPage from "./pages/CountriesPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <>
-      <div>
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
-      <div className="min-h-screen flex items-center justify-center bg-slate-900">
-        <h1 className="text-4xl font-bold text-emerald-400">Hello 🌍</h1>
-      </div>
-    </>
+const App = () => {
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path="/" element={<MainLayout />}>
+        <Route path="*" element={<NotFoundPage />} />
+        <Route index element={<HomePage />} />
+        <Route path="/details/:cca3" element={<CountryDetailsPage />} />
+        <Route path="/countries" element={<CountriesPage />} />
+      </Route>
+    )
   );
-}
+  return <RouterProvider router={router} />;
+};
 
 export default App;
