@@ -7,8 +7,8 @@ import {
 import HomePage from "./pages/HomePage";
 import MainLayout from "./layouts/MainLayout";
 import CountryDetailsPage from "./pages/CountryDetailsPage";
-import CountriesPage from "./pages/CountriesPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import ExplorePage from "./pages/ExplorePage";
 
 const App = () => {
   const router = createBrowserRouter(
@@ -17,7 +17,7 @@ const App = () => {
         <Route path="*" element={<NotFoundPage />} />
         <Route index element={<HomePage />} />
         <Route path="/details/:cca3" element={<CountryDetailsPage />} />
-        <Route path="/countries" element={<CountriesPage />} />
+        <Route path="/explore" element={<ExplorePage />} />
       </Route>
     )
   );

@@ -1,11 +1,11 @@
-import CountryCard from "../components/CountryCard";
-import CountrySearch from "../components/CountrySearch";
 import Hero from "../components/Hero";
+import HomeCards from "../components/HomeCards";
 
 const HomePage = () => {
   return (
     <>
       <Hero />
+      <HomeCards />
     </>
   );
 };
