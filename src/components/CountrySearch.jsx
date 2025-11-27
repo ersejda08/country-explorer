@@ -21,19 +21,22 @@ const CountrySearch = () => {
   useEffect(() => {
     const fetchCountries = async () => {
       try {
-        const res = await fetch(
+        setLoading(true); //activate loading state before request
+        //trying to fetch data
+        const response = await fetch(
           "https://restcountries.com/v3.1/all?fields=name,cca3,capital,region,flags,population,languages,currencies,latlng,capitalInfo"
         );
-        const data = await res.json();
-        setCountries(data);
+        const data = await response.json(); //convert response to json
+        setCountries(data); //store data in state
       } catch (err) {
+        //display error message
+        console.log(err.message);
         setError("Could not load data.");
       } finally {
-        setLoading(false);
+        setLoading(false); //deactivate loading state once request completed
       }
     };
-
-    fetchCountries();
+    fetchCountries(); //executing fetchData from useEffect
   }, []);
 
   const handleClear = () => {
