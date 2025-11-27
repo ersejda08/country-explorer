@@ -65,7 +65,7 @@ const CountryDetails = () => {
 
   console.log("Map coords:", country.name?.common, lat, lng);
 
-  // OpenStreetMap embed: show a wide bbox (zoomed-out "world" feel) and marker
+  // OpenStreetMap embed:
   const mapEmbedUrl = hasCoords
     ? `https://www.openstreetmap.org/export/embed.html?bbox=${lng - 40}%2C${
         lat - 30

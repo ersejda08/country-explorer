@@ -1,4 +1,3 @@
-// Card.jsx
 const Card = ({ children, isDetails = false, className = "" }) => {
   const baseClasses =
     "group bg-amber-50 border border-amber-100 rounded-2xl " +

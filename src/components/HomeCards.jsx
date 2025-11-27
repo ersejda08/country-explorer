@@ -1,38 +1,85 @@
-//import React from "react";
-import CountryCard from "./CountryCard";
+import { Link } from "react-router-dom";
+import Card from "./Card";
+
 const HomeCards = () => {
   return (
-    <section className="py-4">
-      <div className="container-xl lg:container m-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-4 rounded-lg">
-          {/*  <div className="bg-gray-100 p-6 rounded-lg shadow-md"> */}
-          <CountryCard>
-            <h2 className="text-2xl font-bold">For Developers</h2>
-            <p className="mt-2 mb-4">
-              Browse our jobs and start your career today
+    <section className="py-10">
+      <div className="container-xl lg:container mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4 rounded-lg">
+          {/* Teachers card */}
+          <Card className="bg-amber-50/90">
+            <div className="flex items-start gap-4 mb-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-amber-100 text-2xl">
+                👩‍🏫
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-amber-700">
+                  For Teachers
+                </p>
+                <h2 className="text-xl font-bold text-slate-900">
+                  Turn data into interactive lessons
+                </h2>
+              </div>
+            </div>
+
+            <p className="mt-1 mb-4 text-sm text-slate-700">
+              Use real country data to create engaging quizzes, maps and
+              classroom activities. Let your students explore the world through
+              live API data.
             </p>
-            <a
-              href="/jobs.html"
-              className="inline-block bg-black text-white rounded-lg px-4 py-2 hover:bg-gray-700"
+
+            <ul className="mb-4 space-y-1 text-sm text-slate-700">
+              <li>• Build country comparison games</li>
+              <li>• Create geography & culture quizzes</li>
+              <li>• Visualize flags, capitals and regions</li>
+            </ul>
+
+            <Link
+              to=""
+              className="inline-flex items-center justify-center rounded-full bg-slate-900 px-4 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-slate-800 hover:shadow-md transition"
             >
-              Browse jobs
-            </a>
-            {/* </div> */}
-          </CountryCard>
-          {/* <div className="bg-red-100 p-6 rounded-lg shadow-md"> */}
-          <CountryCard bg="bg-red-100">
-            <h2 className="text-2xl font-bold">For Employers</h2>
-            <p className="mt-2 mb-4">
-              List your job to find the perfect developer for the role
+              Explore teaching ideas
+              <span className="ml-1">➜</span>
+            </Link>
+          </Card>
+
+          {/* Students card */}
+          <Card className="bg-sky-50/90">
+            <div className="flex items-start gap-4 mb-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-sky-100 text-2xl">
+                🌍
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-wide text-sky-700">
+                  For Students
+                </p>
+                <h2 className="text-xl font-bold text-slate-900">
+                  Discover the world, one country at a time
+                </h2>
+              </div>
+            </div>
+
+            <p className="mt-1 mb-4 text-sm text-slate-700">
+              Search countries, explore flags, languages and currencies, and see
+              where they are on the map. Turn curiosity into knowledge.
             </p>
-            <a
-              href="/add-job.html"
-              className="inline-block bg-red-500 text-white rounded-lg px-4 py-2 hover:bg-red-600"
+
+            <ul className="mb-4 space-y-1 text-sm text-slate-700">
+              <li>• Practice geography with real data</li>
+              <li>• Learn capitals, flags and languages</li>
+              <li>• Explore regions and continents</li>
+            </ul>
+
+            <Link
+              to="/explore"
+              className="inline-flex items-center justify-center rounded-full bg-orange-100 px-4 py-1.5 text-xs font-semibold text-slate-800 shadow-sm hover:bg-orange-200 hover:shadow-md transition"
             >
-              Add job
-            </a>
-          </CountryCard>
-          {/* </div> */}
+              Start exploring
+              <span className="ml-1">✨</span>
+            </Link>
+          </Card>
         </div>
       </div>
     </section>

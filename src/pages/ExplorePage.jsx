@@ -1,4 +1,3 @@
-import React from "react";
 import CountrySearch from "../components/CountrySearch";
 
 const ExplorePage = () => {
